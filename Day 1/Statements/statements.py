@@ -16,3 +16,14 @@ x = 5; y = 10; print(x + y) # This is a statement with multiple statements on th
 
 """ However, it is not recommended to use semicolons to separate statements on the same line, 
 as it can make the code less readable. It is better to write each statement on a separate line."""
+
+# Invalid statements
+
+# This is an expression, not a statement
+5 > 2 
+
+# This is a statement, but it is not recommended to write it on the same line as the if statement.
+if 5 > 2: print("Five is greater than two!") 
+
+# This is not a valid statement, as it contains two statements on the same line without a semicolon.
+# print("This is a statement") print("This is another statement") 
