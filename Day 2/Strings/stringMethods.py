@@ -460,14 +460,115 @@ print("Is uppercase:", is_upper)  # Output: Is uppercase: True (because all lett
 s = "123 HELLO WORLD!"
 is_upper = s.isupper()
 print("Original string:", s)  # Output: Original string: 123 HELLO WORLD
-print("Is uppercase:", is_upper) 
+print("Is uppercase:", is_upper) # Output: Is uppercase: True (because all letters in the string are uppercase, and the presence of digits does not affect the uppercase status of the string)
 s = "% HELLO WORLD!"
 is_upper = s.isupper()
 print("Original string:", s)  # Output: Original string: % HELLO WORLD!
-print("Is uppercase:", is_upper) 
+print("Is uppercase:", is_upper) # Output: Is uppercase: True (because all letters in the string are uppercase, and the presence of a special character does not affect the uppercase status of the string)
 
 s = "HELLO WORLD! %"
 is_upper = s.isupper()
 print("Original string:", s)  # Output: Original string: HELLO WORLD! %
-print("Is uppercase:", is_upper)
+print("Is uppercase:", is_upper) # Output: Is uppercase: True (because all letters in the string are uppercase, and the presence of a special character does not affect the uppercase status of the string)
 
+
+# join() - Joins the elements of an iterable (like a list or tuple) into a single string, using the string as a separator.
+words = ["Hello", "World", "Python"]
+joined_string = " ".join(words)
+# This will create a new string by joining the elements of the words list with a space as a separator
+print("Original list:", words)  # Output: Original list: ['Hello', 'World', 'Python']
+print("Joined string:", joined_string)  # Output: Joined string: Hello World Python
+
+is_alphanumeric = ["Hello123", "Hello, World!", "12345"]
+joined_string = ", ".join(is_alphanumeric)
+print("Original list:", is_alphanumeric)  # Output: Original list: ['Hello123', 'Hello, World!', '12345']
+print("Joined string:", joined_string)  # Output: Joined string: Hello123, Hello, World!, 12345
+
+joined_string = "-".join(is_alphanumeric)
+print("Joined string with hyphen:", joined_string)  # Output: Joined string with hyphen: Hello123-Hello, World!-12345
+
+# ljust() - Left-justifies the string within a specified width, padding it with a specified character (default is space).
+s = "Hello"
+s_left_justified = s.ljust(20, "*")
+# This will create a new string that left-justifies the original string within a width of 20 characters, padding it with asterisks
+print("Original string:", s)  # Output: Original string: Hello
+print("Left-justified string:", s_left_justified)  # Output: Left-justified string: Hello***************
+
+# lower() - Converts all characters in the string to lowercase and returns the new string.
+s = "Hello, World!"
+s_lower = s.lower()
+# This will create a new string with all characters in lowercase
+print("Original string:", s)  # Output: Original string: Hello, World!
+print("Lowercase string:", s_lower)  # Output: Lowercase string: hello, world!
+
+s = "HELLO, WORLD!"
+s_lower = s.lower()
+print("Original string:", s)  # Output: Original string: HELLO, WORLD!  
+print("Lowercase string:", s_lower)  # Output: Lowercase string: hello, world! 
+
+s = "12345"
+s_lower = s.lower()
+print("Original string:", s)  # Output: Original string: 12345
+print("Lowercase string:", s_lower)  # Output: Lowercase string: 12345 (because there are no alphabetic characters in the string, so the lowercase conversion does not change the string)
+
+# lstrip() - Left-strips the string by removing leading whitespace or specified characters and returns the new string.
+s = "   Hello, World!   "
+s_left_stripped = s.lstrip()
+# This will create a new string by removing leading whitespace from the original string
+print("Original string:", repr(s))  # Output: Original string: '   Hello, World!   '
+print("Left-stripped string:", repr(s_left_stripped))  # Output: Left-stripped string: 'Hello, World!   '   
+
+s = "###Hello, World!###"
+s_left_stripped = s.lstrip("#")
+print("Original string:", s)  # Output: Original string: ###Hello, World!
+print("Left-stripped string:", s_left_stripped)  # Output: Left-stripped string: Hello, World!### (because the leading '#' characters are removed, but the trailing '#' characters are not affected by the lstrip() method) 
+
+
+# maketrans() - Creates a translation table that can be used with the translate() method to replace specified characters in the string.
+s = "Hello, World!"
+translation_table = str.maketrans("Helo", "hELo")
+# This will create a translation table that maps 'H' to 'h', 'e' to 'E', 'l' to 'L', and 'o' to 'o'
+s_translated = s.translate(translation_table)
+# This will create a new string by replacing characters in the original string according to the translation table
+print("Original string:", s)  # Output: Original string: Hello, World!
+print("Translated string:", s_translated)  # Output: Translated string: hELLo, WorLd! (because 'H' is replaced with 'h', 'e' is replaced with 'E', 'l' is replaced with 'L', and 'o' remains unchanged)
+
+s = "Python Programming"
+translation_table = str.maketrans("Pythn", "pYTHN")
+s_translated = s.translate(translation_table)
+print("Original string:", s)  # Output: Original string: Python Programming
+print("Translated string:", s_translated)  # Output: Translated string: pYTHoN Programming (because 'P' is replaced with 'p', 'y' is replaced with 'Y', 't' is replaced with 'T', 'h' is replaced with 'H', and 'n' is replaced with 'N')   
+
+# partition() - Splits the string into three parts based on a specified separator: the part before the separator, the separator itself, and the part after the separator. It returns a tuple containing these three parts.
+s = "Hello, World!"
+partitioned = s.partition(", ")
+# This will split the original string into three parts based on the separator ", " and return a tuple containing the part before the separator, the separator itself, and the part after the separator
+print("Original string:", s)  # Output: Original string: Hello, World!
+print("Partitioned string:", partitioned)  # Output: Partitioned string: ('Hello', ', ', 'World!') (because the string is split into 'Hello' before the separator, ', ' as the separator, and 'World!' after the separator) 
+
+s = "Python Programming"
+partitioned = s.partition(" ")
+print("Original string:", s)  # Output: Original string: Python Programming
+print("Partitioned string:", partitioned)  # Output: Partitioned string: ('Python', ' ', 'Programming') (because the string is split into 'Python' before the separator, ' ' as the separator, and 'Programming' after the separator)   
+
+s = "Hello, World!"
+partitioned = s.partition("x")
+print("Original string:", s)  # Output: Original string: Hello, World!
+print("Partitioned string:", partitioned)  # Output: Partitioned string: ('Hello, World!', '', '') (because the separator "x" is not found in the string, so the entire string is returned as the first element of the tuple, and the second and third elements are empty strings)  
+
+# rsplit() - Right-splits the string into a list of substrings based on a specified separator, starting from the right. It takes an optional maxsplit argument that specifies the maximum number of splits to perform.
+s = "Hello, World! Welcome to Python."
+rsplit_result = s.rsplit(", ", 1)
+# This will split the original string into a list of substrings based on the separator ", ", starting from the right, and it will perform at most 1 split
+print("Original string:", s)  # Output: Original string: Hello, World! Welcome to Python.
+print("Right-split result:", rsplit_result)  # Output: Right-split result: ['Hello, World! Welcome to Python.'] (because the separator ", " is not found in the string, so the entire string is returned as a single element in the list)   
+
+s = "Hello, World! Welcome to Python."
+rsplit_result = s.rsplit(" ", 2)
+print("Original string:", s)  # Output: Original string: Hello, World! Welcome to Python.
+print("Right-split result:", rsplit_result)  # Output: Right-split result: ['Hello, World! Welcome', 'to', 'Python.'] (because the separator " " is found in the string, and it is split into three parts starting from the right, with at most 2 splits)   
+
+s = "Hello, World! Welcome to Python."
+rsplit_result = s.rsplit("x", 1)
+print("Original string:", s)  # Output: Original string: Hello, World! Welcome to Python.
+print("Right-split result:", rsplit_result)  # Output: Right-split result: ['Hello, World! Welcome to Python.'] (because the separator "x" is not found in the string, so the entire string is returned as a single element in the list 
