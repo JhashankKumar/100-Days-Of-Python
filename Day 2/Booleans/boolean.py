@@ -72,3 +72,5 @@ print(isinstance(a, bool))  # Output: False
 print(isinstance(1, bool))  # Output: False
 print(isinstance(0, bool))  # Output: False
 print(isinstance(None, bool))  # Output: False
+
+print(isinstance(1, int))  # Output: True
