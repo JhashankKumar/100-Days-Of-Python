@@ -91,3 +91,44 @@ Union() and update() methods can also take multiple sets as arguments,
 allowing you to combine more than two sets at once.
 Both will add all the unique elements from the provided sets to the original set.(discarding duplicates)
 """
+
+# difference_update() method is used to update a set with the difference of itself and another set.
+# Example of difference_update() method
+set_a = {1, 2, 3, 4, 5}
+set_b = {4, 5, 6, 7, 8}
+print("Set A before difference_update:", set_a)
+set_a.difference_update(set_b)
+print("Set A after difference_update with Set B:", set_a)   
+
+set_c = {1, 2, 3, 4, 5}
+set_d = {4, 5, 6, 7, 8}
+print("Set C before difference_update:", set_c)
+set_d.difference_update(set_c)
+print("Set D after difference_update with Set C:", set_d)
+
+value_set = { 0, True, "Hello", 3.14 }
+other_set = { 1, False, "World", 2.71 }
+print("Value set before intersection_update:", value_set)
+value_set.intersection_update(other_set)
+print("Value set after intersection_update with other set:", value_set)
+
+value_set2 = { 0, True, "Hello", 3.14 }
+other_set2 = { 1, False, "World", 2.71 }    
+print("Other set before difference_update:", other_set2)
+other_set2.difference_update(value_set2)
+print("Other set after difference_update with value set:", other_set2)
+
+"""
+The intersection_update() method is used to update a set with the intersection of itself and another set.
+It modifies the original set in place, rather than creating a new set.
+The difference_update() method is used to update a set with the difference of itself and another set.
+It modifies the original set in place, rather than creating a new set.
+"""
+
+# symmetric_difference_update() method is used to update a set with the symmetric difference of itself and another set.
+# Example of symmetric_difference_update() method
+set_x = {1, 2, 3, 4, 5}
+set_y = {4, 5, 6, 7, 8}
+print("Set X before symmetric_difference_update:", set_x)
+set_x.symmetric_difference_update(set_y)
+print("Set X after symmetric_difference_update with Set Y:", set_x)
