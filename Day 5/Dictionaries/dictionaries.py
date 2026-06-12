@@ -56,3 +56,37 @@ my_dict = {
 }
 print(my_dict)  # Output: {'name': 'Bob', 'age': 30, 'city': 'New York'}    
 
+# length of a dictionary
+print(len(my_dict))  # Output: 3 (because there are 3 key-value pairs in the dictionary)
+
+# creating a dictionary using the dict() constructor
+my_dict2 = dict(name="Charlie", age=25, city="Los Angeles")
+print(my_dict2)  # Output: {'name': 'Charlie', 'age': 25, 'city': 'Los Angeles'}
+
+# data types of dictionary values
+"""
+dictionary values can be of any data type, including:
+- strings
+- numbers
+- lists
+- tuples
+- sets
+- other dictionaries
+"""
+my_dict3 = {
+    "name": "David",
+    "age": 40,
+    "is_student": False,
+    "hobbies": ["reading", "traveling"],
+    "address": {"street": "123 Main St", "city": "Chicago"}
+}
+print(my_dict3)
+# Output: {'name': 'David', 'age': 40, 'is_student': False, 'hobbies': ['reading', 'traveling'], 'address': {'street': '123 Main St', 'city': 'Chicago'}}   
+
+# from python 3.7, dictionaries are ordered, meaning that the items have a defined order, and that order will not change.
+my_dict4 = {
+    "name": "Eve",
+    "age": 35,
+    "city": "Miami"
+}
+print(my_dict4)  # Output: {'name': 'Eve', 'age': 35, 'city': 'Miami'} (the order of the items is the same as they were added)  
