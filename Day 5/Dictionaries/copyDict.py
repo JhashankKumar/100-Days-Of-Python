@@ -20,6 +20,21 @@ print(my_dict_copy)
 my_dict_copy2 = dict(my_dict)
 print(my_dict_copy2)
 
+""" 
+is  my_dict_copy and my_dict_copy2 the same?
+
+"""
+
+print(my_dict_copy == my_dict_copy2)  # True
+print(my_dict_copy is my_dict_copy2)  # False
+
+print(my_dict_copy2 == my_dict)  # True
+print(my_dict_copy2 is my_dict)  # False
+
+print(my_dict_copy == my_dict_copy2)
+print(my_dict_copy is my_dict_copy2)
+
+
 """
 what is the difference between copy() and dict() methods?
 The copy() method creates a shallow copy of the dictionary, 
