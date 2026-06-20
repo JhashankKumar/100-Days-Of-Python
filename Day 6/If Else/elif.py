@@ -51,3 +51,11 @@ elif age < 65:
     print("Adult")
 else:
     print("Senior")
+
+# weekday or weekend
+day = "Saturday"
+if day in ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]:
+    print("It's a weekday")
+elif day in ["Saturday", "Sunday"]:
+    print("It's a weekend")
+
