@@ -52,3 +52,11 @@ elif a < b:
 else:    
     print("none of the above")
     
+# while loop with break and continue statements
+count = 1
+
+while count <= 10:
+    if count == 5:
+        break
+    print(count)
+    count += 1
