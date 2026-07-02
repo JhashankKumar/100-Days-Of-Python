@@ -147,3 +147,44 @@ def fibonacci(n):
 
 print(fibonacci(10))  # This will compute and cache results
 print(fibonacci(10))  # This will return the cached result
+
+# preserving function metadata with functools.wraps
+from functools import wraps
+
+def my_decorator_with_metadata(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        print("Something is happening before the function is called.")
+        result = func(*args, **kwargs)
+        print("Something is happening after the function is called.")
+        return result
+    return wrapper
+
+
+@my_decorator_with_metadata
+def say_hello_with_metadata():
+    """This function says hello."""
+    print("Hello!")
+
+say_hello_with_metadata()
+print(say_hello_with_metadata.__name__)  # Output: say_hello_with_metadata
+print(say_hello_with_metadata.__doc__)   # Output: This function says hello.
+
+# without functools.wraps, the metadata would be lost
+
+def my_decorator_without_metadata(func):
+    def wrapper(*args, **kwargs):
+        print("Something is happening before the function is called.")
+        result = func(*args, **kwargs)
+        print("Something is happening after the function is called.")
+        return result
+    return wrapper
+
+@my_decorator_without_metadata
+def say_hello_without_metadata():
+    """This function says hello."""
+    print("Hello!")
+
+say_hello_without_metadata()
+print(say_hello_without_metadata.__name__)  # Output: wrapper
+print(say_hello_without_metadata.__doc__)   # Output: None
