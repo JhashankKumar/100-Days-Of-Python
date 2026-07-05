@@ -28,6 +28,11 @@ concat = lambda str1, str2: str1 + str2
 result = concat("Hello, ", "World!")
 print(result)  # Output: Hello, World!
 
+"""
+Lambda with Built-in Functions
+Lambda functions are commonly used with built-in functions like map(), filter(), and sorted().
+"""
+
 # Example of a lambda function used with the `map` function
 numbers = [1, 2, 3, 4, 5]
 squared_numbers = list(map(lambda x: x ** 2, numbers))
@@ -36,6 +41,26 @@ print(squared_numbers)  # Output: [1, 4, 9, 16, 25]
 # Example of a lambda function used with the `filter` function
 even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
 print(even_numbers)  # Output: [2, 4]
+
+# Example of a lambda function used with the `sorted` function
+# Sorting a list of words based on their length using a lambda function as the key
+words = ['banana', 'apple', 'cherry', 'date']
+sorted_words = sorted(words, key=lambda x: len(x))
+print(sorted_words)  # Output: ['date', 'apple', 'banana', 'cherry']
+
+# Sorting a list of words in reverse order based on their length using a lambda function as the key
+sorted_words_reverse = sorted(words, key=lambda x: len(x), reverse=True)
+print(sorted_words_reverse)  # Output: ['banana', 'cherry', 'apple', 'date']
+
+# Sorting a list of tuples based on the second element using a lambda function as the key
+tuples = [(1, 'one'), (3, 'three'), (2, 'two')]
+sorted_tuples = sorted(tuples, key=lambda x: x[1])
+print(sorted_tuples)  # Output: [(1, 'one'), (3, 'three'), (2, 'two')]
+
+# Sorting a list of tuples in reverse order based on the second element using a lambda function as the key
+sorted_tuples_reverse = sorted(tuples, key=lambda x: x[1], reverse=True)
+print(sorted_tuples_reverse)  # Output: [(2, 'two'), (3, 'three'), (1, 'one')]
+
 
 """
 why lambda functions are useful:
@@ -76,5 +101,11 @@ numbers = [1, 2, 3, 4, 5]
 squared_numbers = [ (lambda x: x ** 2)(x) for x in numbers ]
 print(squared_numbers)  # Output: [1, 4, 9, 16, 25]
 
+
+# Example of a lambda function used in a dictionary comprehension
+keys = ['a', 'b', 'c']
+values = [1, 2, 3]
+squared_dict = {k: (lambda x: x ** 2)(v) for k, v in zip(keys, values)}
+print(squared_dict)  # Output: {'a': 1, 'b': 4, 'c': 9}
 
 
