@@ -50,6 +50,7 @@ class Car:
 
 # Create an instance of the Car class
 car1 = Car("Toyota", "Corolla")
+# Accessing Properties with self
 car1.display_info()  # Output: This car is a Toyota Corolla.
 car1.update_model("Camry")  # Output: The model has been updated to Camry.
 car1.display_info()  # Output: This car is a Toyota Camry.
