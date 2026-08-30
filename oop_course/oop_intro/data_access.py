@@ -23,9 +23,11 @@ print(user1.email)
 
 user1.email = "danoutlook.com"  # PROBLEM: we can set email to anything!
 
-print(user1.email)
+print("uncontrolled access:", user1.email)
 
-# SOLUTION: we need a way of controlling the way we can get and set data. Let me show you two ways: one traditional "Java"-style, and one the more modern "Python" (and C#) style.
+""" SOLUTION: we need a way of controlling the way we can get and set data. 
+Let me show you two ways: one traditional "Java"-style, and one the more 
+modern "Python" (and C#) style."""
 
 # 1. The traditional way: make the data private and use getters and setters:
 
@@ -40,7 +42,8 @@ class User2:
 
     # convention: get + attr name
     def getEmail(self):
-        # Advantage of getter: if we need to make changes to way data is accessed, we can do it just here -- not everywhere we are accessing email
+        """ Advantage of getter: if we need to make changes to way data is accessed, 
+        we can do it just here -- not everywhere we are accessing email"""
         if self.isAdmin:
             print(f"Email accessed at {datetime.now()}")
             return self._email
@@ -53,23 +56,34 @@ class User2:
 
 
 user1 = User2("dantheman", "dan@gmail.com", True)
-print(user1._email)  # NAUGHTY!! As responsible Python devs, we are expected to do this:
+print("Uncontrolled access:", user1._email) # Uncontrolled access
+# As responsible Python devs, we are expected to do this:
 print(user1.getEmail())  # Controlled access
 
 user1.setEmail("dan@outlook.com")
-print(user1.getEmail())
+print("Controlled access using setter:", user1.getEmail())
 
-# Python’s Take on Access Modifiers
-# Unlike languages such as Java or C++, which enforce strict access control (like private or protected), Python takes a more relaxed approach. In Python:
+""" Python’s Take on Access Modifiers
+Unlike languages such as Java or C++, which enforce strict access control 
+(like private or protected), Python takes a more relaxed approach. In Python:
 
-# A single underscore (_) before a name (e.g., _attribute) is a convention indicating that something is intended for internal use within the class or module. This means it’s not part of the public API, and external code shouldn’t access it directly.
-# However, Python doesn’t enforce this restriction. The attribute or method is still accessible from outside the class, but it signals to developers that it’s meant to be “protected” or “internal.”
+A single underscore (_) before a name (e.g., _attribute) is a convention indicating that 
+something is intended for internal use within the class or module. This means it’s not part 
+of the public API, and external code shouldn’t access it directly.
 
-# The “Consenting Adults” Philosophy
-# Guido van Rossum’s "consenting adults" philosophy highlights Python’s emphasis on developer responsibility rather than strict rules. This philosophy suggests that:
+However, Python doesn’t enforce this restriction. The attribute or method is still 
+accessible from outside the class, but it signals to developers that it’s meant to be 
+“protected” or “internal.” """   
 
-# Developers are trusted to respect the convention of not accessing underscore-prefixed attributes or methods.
-# Access is not prevented, as Python assumes that developers will act responsibly and won’t misuse or access “protected” members unless absolutely necessary.
+"""The “Consenting Adults” Philosophy
+Guido van Rossum’s "consenting adults" philosophy highlights Python’s emphasis on 
+developer responsibility rather than strict rules. This philosophy suggests that:
+
+Developers are trusted to respect the convention of not accessing underscore-prefixed 
+attributes or methods.
+
+Access is not prevented, as Python assumes that developers will act responsibly and 
+won’t misuse or access “protected” members unless absolutely necessary."""
 
 # 2. Using properties
 
@@ -98,19 +112,20 @@ class User3:
 
 
 user1 = User3("dantheman", "dan@gmail.com", True)
-print(user1.email)
+print(f"User1's email using property: {user1.email}")
 try:
     user1.email = "dayyn@gmail.com"
 except ValueError as e:
     print(f"Error: {e}")
 
-print(user1.email)
+print(f"User1's email after update: {user1.email}")
 
 # public vs protected vs private attributes (and methods)
 
 # static attributes and methods
 
-# Let's say that we want to keep track of the total number of user objects that have been created. To do that, we can create a "static" attribute on the User class:
+""" Let's say that we want to keep track of the total number of user objects that have 
+been created. To do that, we can create a "static" attribute on the User class:"""
 
 
 class User4:
