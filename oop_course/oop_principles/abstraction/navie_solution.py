@@ -1,4 +1,4 @@
-class BadEmailService:
+class EmailService:
     # def send_email(self):
     #     self.connect()
     #     self.authenticate()
@@ -18,7 +18,7 @@ class BadEmailService:
     def disconnect(self):
         print("Disconnecting from email server...")
 
-email = BadEmailService()
+email = EmailService()
 
 email.connect()
 email.authenticate()
